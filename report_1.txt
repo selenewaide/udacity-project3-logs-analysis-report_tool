@@ -1,0 +1,8 @@
+
+Question:
+What are the most popular three articles of all time? 
+
+Answer:
+ * candidate-is-jerk - 338647 views 
+ * bears-love-berries - 253801 views 
+ * bad-things-gone - 170098 views 
