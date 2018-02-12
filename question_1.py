@@ -1,13 +1,16 @@
-# Output query results to file
-# Question: What are the most popular three articles of all time?
+#!/usr/bin/python3
+
+"""
+Output query results to file.
+
+Question: What are the most popular three articles of all time?
+"""
 
 import results_from_db
 
 
 def results_to_file(results):
-    '''
-    Takes the results from an SQl query and writes this to a txt file.
-    '''
+    """Take the results from an SQl query and writes this to a txt file."""
     with open('report_1.txt', mode='wt', encoding='utf-8') as output_file:
         output_file.write('\nQuestion:\n')
         output_file.write(
@@ -24,6 +27,7 @@ def results_to_file(results):
 
 
 def main():
+    """Define query and run result."""
     query = '''
         SELECT path,
         COUNT (path)

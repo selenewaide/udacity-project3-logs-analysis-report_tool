@@ -1,13 +1,16 @@
-# Output query results to file
-# Question:  Who are the most popular article authors of all time?
+#!/usr/bin/python3
+
+"""
+Output query results to file.
+
+Question:  Who are the most popular article authors of all time?
+"""
 
 import results_from_db
 
 
 def results_to_file(results):
-    '''
-    Takes the results from an SQl query and writes this to a txt file.
-    '''
+    """Take the results from an SQl query and writes this to a txt file."""
     with open('report_2.txt', mode='wt', encoding='utf-8') as output_file:
         output_file.write('\nQuestion:\n')
         output_file.write(
@@ -23,6 +26,7 @@ def results_to_file(results):
 
 
 def main():
+    """Define query and run result."""
     query = '''
         SELECT authors.name,
         COUNT (authors.name)

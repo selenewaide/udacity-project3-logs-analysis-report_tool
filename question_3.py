@@ -1,14 +1,17 @@
-# Output query results to file
-# Question: On which days did more than 1% of requests lead to errors?
+#!/usr/bin/python3
+
+"""
+Output query results to file.
+
+Question: On which days did more than 1% of requests lead to errors?
+"""
 
 import results_from_db
 from datetime import datetime
 
 
 def results_to_file(results, file_name):
-    '''
-    Takes the results from an SQl query and writes this to a txt file.
-    '''
+    """Take the results from an SQl query and writes this to a txt file."""
     with open(file_name, mode='wt', encoding='utf-8') as output_file:
         output_file.write('\nQuestion:\n')
         output_file.write(
@@ -25,11 +28,12 @@ def results_to_file(results, file_name):
                 date_str = "{}20{}".format(date_str[0:6], date_str[6:])
                 dt_obj = datetime.strptime(date_str, '%m/%d/%Y')
                 date_formatted = dt_obj.strftime('%A, %B %d, %Y')
-                output_file.write(
-                    " * {} - {}% errors \n".format(date_formatted, error_percentage))
+                output_file.write(" * {} - {}% errors \n".format(
+                    date_formatted, error_percentage))
 
 
 def main():
+    """Define query and run result."""
     query = '''
     SELECT to_char(time,'mm/dd/yy') as date,
     COUNT(a.status) filter (where status != '200 OK') as error_count,

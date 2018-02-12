@@ -1,4 +1,7 @@
-# Database code for the DB news
+#!/usr/bin/python3
+
+"""Database code for the DB news."""
+
 
 import datetime
 import psycopg2
@@ -7,7 +10,7 @@ DBNAME = "news"
 
 
 def get_query_results(query):
-    """Return query results from the database"""
+    """Return query results from the database."""
     db = psycopg2.connect(database=DBNAME)
     c = db.cursor()
     c.execute(query)
@@ -17,6 +20,7 @@ def get_query_results(query):
 
 
 def main(query):
+    """Get the db query result."""
     return get_query_results(query)
 
 
